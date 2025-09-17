@@ -11,7 +11,7 @@ export class Student {
   @Prop({ required: true })
   rollNo: number;
 
-  // store reference to Address document
+  // Reference to Address document
   @Prop({ type: Types.ObjectId, ref: 'Address' })
   address: Types.ObjectId;
 }
