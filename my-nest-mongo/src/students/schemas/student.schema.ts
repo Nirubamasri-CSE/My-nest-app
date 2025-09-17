@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 export type StudentDocument = Student & Document;
 
@@ -11,8 +11,9 @@ export class Student {
   @Prop({ required: true })
   rollNo: number;
 
-  @Prop()
-  address: string;
+  // store reference to Address document
+  @Prop({ type: Types.ObjectId, ref: 'Address' })
+  address: Types.ObjectId;
 }
 
 export const StudentSchema = SchemaFactory.createForClass(Student);
