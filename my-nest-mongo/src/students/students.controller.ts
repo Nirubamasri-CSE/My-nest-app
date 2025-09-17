@@ -6,10 +6,12 @@ import { CreateStudentDto } from './dto/create-student.dto';
 export class StudentsController {
   constructor(private readonly studentsService: StudentsService) {}
 
-  @Post()
-  create(@Body() createStudentDto: CreateStudentDto) {
-    return this.studentsService.create(createStudentDto);
-  }
+@Post()
+create(@Body() createStudentDto: any) {  // use 'any' instead of DTO
+  console.log('Received body:', createStudentDto);  // log incoming body
+  return this.studentsService.create(createStudentDto);
+}
+
 
   @Get()
   findAll() {

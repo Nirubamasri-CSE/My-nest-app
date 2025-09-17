@@ -1,5 +1,5 @@
 export class CreateStudentDto {
   readonly name: string;
-  readonly rollNo: number;
+  readonly rollNo: string;  // match type with schema
   readonly address?: string;
 }
